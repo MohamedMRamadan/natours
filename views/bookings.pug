@@ -1,0 +1,30 @@
+extends account 
+mixin listItem(booking)
+  li.user-view__booking-list-item.flex-1_in
+    img.booking-item-image(src=`/img/tours/${booking.tour.imageCover}`, alt=`${booking.tour.imageCover}`)
+    p= booking.tour.name
+    p= booking.id
+    p #{booking.price}$ 
+  
+
+block userViewContent
+  .user-view__content
+    .user-view__bookings-container
+      if !bookings.length
+        .user-view__no-bookings
+          p You have no bookings yet!
+      else
+        h1 Bookings
+        ul.user-view__booking-list
+          li.user-view__booking-list-item.flex-1_in.booking-banner
+            p.flex-0 img
+            p Name
+            p Booking Id
+            p Price 
+          each booking in bookings 
+            +listItem(booking)
+          li.user-view__booking-list-item.booking-banner.flex-1_in.banner-footer
+            -let totalPrice = bookings.reduce((acc, curr) => curr.price + acc, 0);
+            p Total bookings: #{bookings.length}
+            p Total price: #{totalPrice}$
+          
