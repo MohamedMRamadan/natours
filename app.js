@@ -76,7 +76,6 @@ app.post(
 // aslo the href and srcs in .pug files will be served them routes as static files
 app.use(express.static(path.join(__dirname, 'public')));
 // Body parser, Reading data from body into req.body
-// it will parse mdata into meaningful data, it won't accecpt any body larger than 10kb
 app.use(express.json({ limit: '10kb' }));
 // parse data coming from url encoded form
 // allow us to pass more complex data and parsing it

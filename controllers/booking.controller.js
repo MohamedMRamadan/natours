@@ -18,6 +18,8 @@ const STRIPE_WEBHOOK_SECRET =
     ? process.env.STRIPE_WEBHOOK_SECRET_LOCAL
     : process.env.STRIPE_WEBHOOK_SECRET;
 
+console.log(STRIPE_WEBHOOK_SECRET);
+
 // eslint-disable-next-line import/prefer-default-export
 export const getCheckoutSession = catchAsync(async (req, res, next) => {
   // 1) Get the currently wanted tour to be booked
