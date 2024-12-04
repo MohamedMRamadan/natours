@@ -8,7 +8,7 @@
   "type": "module",
   "main": "app.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "set NODE_ENV=production&& nodemon --env-file=.env server.js",
     "dev": "nodemon --env-file=.env server.js",
     "start:prod": "set NODE_ENV=production&& nodemon --env-file=.env server.js",
     "debug": "ndb server.js",
